@@ -58,7 +58,8 @@ namespace MC_Project
                 {
              
                     ds_goicauhoishining vd = _entities.ds_goicauhoishining.Find(_cauhoiid);
-                    disPlayVeDich(_goicauhoiid, (int)vd.vitri, _x2);
+                    disPlayVeDich(_cauhoiid, (int)vd.vitri, _x2);
+                    loadNutDangChon(_cauhoiid, _x2);
                     lblThele.Text = "Question " + vd.vitri + ": (" + vd.sodiem + " points)";
                     if ((bool)!vd.isvideo)
                     {
@@ -272,20 +273,24 @@ namespace MC_Project
                     lblDA.Visible = false;
 
                 }
-                loadNutDaChon(_cauhoiid);
                 //disableGoiCauHoiKhoiDong(_goicauhoiid);
             }
         }
         // Danh sách các ID câu hỏi đã hiển thị trước đó
         private HashSet<int> dsCauHoiDaHienThi = new HashSet<int>();
+
         void disPlayVeDich(int cauhoiid, int vitri, bool isX2)
         {
             var cauhoiTS = _entities.ds_goicauhoishining.Find(cauhoiid);
             if (cauhoiTS != null)
             {
+
                 if (cauhoiTS.vitri == vitri)
                 {
-                   
+                    // Nếu câu hỏi này đã được hiển thị rồi, không update lại nữa
+                    if (dsCauHoiDaHienThi.Contains(cauhoiid))
+                        return;
+
                     if (cauhoiTS.trangThai == 1)
                     {
                         if (isX2)
@@ -295,23 +300,23 @@ namespace MC_Project
                             {
                                 case 1:
                                     pbGoi1.SizeMode = PictureBoxSizeMode.StretchImage;
-                                    pbGoi1.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\ts1_ns.png");
+                                    pbGoi1.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\1-star.png");
                                     break;
                                 case 2:
                                     pbGoi2.SizeMode = PictureBoxSizeMode.StretchImage;
-                                    pbGoi2.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\ts2_ns.png");
+                                    pbGoi2.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\2-star.png");
                                     break;
                                 case 3:
                                     pbGoi3.SizeMode = PictureBoxSizeMode.StretchImage;
-                                    pbGoi3.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\ts3_ns.png"); ;
+                                    pbGoi3.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\3-star.png"); ;
                                     break;
                                 case 4:
                                     pbGoi4.SizeMode = PictureBoxSizeMode.StretchImage;
-                                    pbGoi4.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\ts4_ns.png"); ;
+                                    pbGoi4.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\4-star.png"); ;
                                     break;
                                 case 5:
                                     pbGoi5.SizeMode = PictureBoxSizeMode.StretchImage;
-                                    pbGoi5.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\ts5_ns.png"); ;
+                                    pbGoi5.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\5-star.png"); ;
                                     break;
 
                             }
@@ -350,23 +355,23 @@ namespace MC_Project
                         {
                             case 1:
                                 pbGoi1.SizeMode = PictureBoxSizeMode.StretchImage;
-                                pbGoi1.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\ts1.png");
+                                pbGoi1.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\1-dis.png");
                                 break;
                             case 2:
                                 pbGoi2.SizeMode = PictureBoxSizeMode.StretchImage;
-                                pbGoi2.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\ts2.png");
+                                pbGoi2.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\2-dis.png");
                                 break;
                             case 3:
                                 pbGoi3.SizeMode = PictureBoxSizeMode.StretchImage;
-                                pbGoi3.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\ts3.png"); ;
+                                pbGoi3.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\3-dis.png"); ;
                                 break;
                             case 4:
                                 pbGoi4.SizeMode = PictureBoxSizeMode.StretchImage;
-                                pbGoi4.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\ts4.png"); ;
+                                pbGoi4.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\4-dis.png"); ;
                                 break;
                             case 5:
                                 pbGoi5.SizeMode = PictureBoxSizeMode.StretchImage;
-                                pbGoi5.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\ts5.png"); ;
+                                pbGoi5.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\5-dis.png"); ;
                                 break;
 
                         }
@@ -405,6 +410,71 @@ namespace MC_Project
             }
 
         }
+        private void loadNutDangChon(int cauhoiid, bool isX2)
+        {
+            var dsCauChon = _entities.ds_goicauhoishining
+                .Where(x => x.cauhoiid == cauhoiid && x.trangThai == 1)
+                .ToList();
+            foreach (var cauHoi in dsCauChon)
+            {
+                if (isX2)
+                {
+
+                    switch (cauHoi.vitri)
+                    {
+                        case 1:
+                            pbGoi1.SizeMode = PictureBoxSizeMode.StretchImage;
+                            pbGoi1.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\1-star.png");
+                            break;
+                        case 2:
+                            pbGoi2.SizeMode = PictureBoxSizeMode.StretchImage;
+                            pbGoi2.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\2-star.png");
+                            break;
+                        case 3:
+                            pbGoi3.SizeMode = PictureBoxSizeMode.StretchImage;
+                            pbGoi3.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\3-star.png"); ;
+                            break;
+                        case 4:
+                            pbGoi4.SizeMode = PictureBoxSizeMode.StretchImage;
+                            pbGoi4.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\4-star.png"); ;
+                            break;
+                        case 5:
+                            pbGoi5.SizeMode = PictureBoxSizeMode.StretchImage;
+                            pbGoi5.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\5-star.png"); ;
+                            break;
+
+                    }
+                }
+                else
+                {
+                    switch (cauHoi.vitri)
+                    {
+                        case 1:
+                            pbGoi1.SizeMode = PictureBoxSizeMode.StretchImage;
+                            pbGoi1.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\ts1_in.png");
+                            break;
+                        case 2:
+                            pbGoi2.SizeMode = PictureBoxSizeMode.StretchImage;
+                            pbGoi2.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\ts2_in.png");
+                            break;
+                        case 3:
+                            pbGoi3.SizeMode = PictureBoxSizeMode.StretchImage;
+                            pbGoi3.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\ts3_in.png"); ;
+                            break;
+                        case 4:
+                            pbGoi4.SizeMode = PictureBoxSizeMode.StretchImage;
+                            pbGoi4.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\ts4_in.png"); ;
+                            break;
+                        case 5:
+                            pbGoi5.SizeMode = PictureBoxSizeMode.StretchImage;
+                            pbGoi5.Image = System.Drawing.Image.FromFile(currentPath + "\\Resources\\group4\\ts5_in.png"); ;
+                            break;
+
+                    }
+                }
+            }
+        }
+
         private void loadNutDaChon(int cauhoiid)
         {
             var dsCauDaChon = _entities.ds_goicauhoishining

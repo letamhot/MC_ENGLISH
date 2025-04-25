@@ -121,10 +121,10 @@
             // axWinCauHoiHinhAnh
             // 
             this.axWinCauHoiHinhAnh.Enabled = true;
-            this.axWinCauHoiHinhAnh.Location = new System.Drawing.Point(38, 134);
+            this.axWinCauHoiHinhAnh.Location = new System.Drawing.Point(38, 154);
             this.axWinCauHoiHinhAnh.Name = "axWinCauHoiHinhAnh";
             this.axWinCauHoiHinhAnh.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWinCauHoiHinhAnh.OcxState")));
-            this.axWinCauHoiHinhAnh.Size = new System.Drawing.Size(413, 265);
+            this.axWinCauHoiHinhAnh.Size = new System.Drawing.Size(398, 245);
             this.axWinCauHoiHinhAnh.TabIndex = 24;
             this.axWinCauHoiHinhAnh.Visible = false;
             // 
