@@ -58,7 +58,22 @@ namespace MC_Project
             ds_cauhoithuthach khamPha = _entities.ds_cauhoithuthach.Find(cauhoiid);
             if (khamPha != null)
             {
-                lblThele.Text = "Question number " + khamPha.vitri + ":";
+                if (khamPha.vitri == 1 || khamPha.vitri == 2)
+                {
+                    lblThele.Text = "Question " + khamPha.vitri + ": Rearrange the following words or phrases to make a complete sentence";
+
+                }
+                else if (khamPha.vitri == 3 || khamPha.vitri == 4)
+                {
+                    lblThele.Text = "Question " + khamPha.vitri + ": Rearrange the following sentences to make a meaningful conversation";
+
+                }
+                else
+                {
+                    lblThele.Text = "Question " + khamPha.vitri + ": Rearrange the following sentences to make a meaningful paragraph";
+
+                }
+                //lblThele.Text = "Question number " + khamPha.vitri + ":";
                 lblDapAn.Text = khamPha.dapantext + "\n" + khamPha.dapanABC;
                 //lblNoiDungCauHoiKP.Text = khamPha.noidung;
                 // Xóa các Button cũ

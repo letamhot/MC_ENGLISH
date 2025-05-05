@@ -107,8 +107,7 @@ namespace MC_Project
             if (_goicauhoiid == 0)
             {
                 invisibleGui();
-                lblthele.Text = "Please invite candidates " + teamplaying.tennguoichoi.ToUpper() + " chooses a question package!";                //lblthele.Text = "Thể lệ phần thi:";
-
+                lblthele.Text = "Question package!";                
             }
             else
             {
@@ -120,7 +119,7 @@ namespace MC_Project
                     {
                         lblthele.Text = "Candidate " + teamplaying.tennguoichoi.ToUpper() + " is doing the section";
                     }
-                    labelNoiDungCauHoi.Text = "Question number " + _entities.ds_goicauhoikhoidong.Find(_cauhoiid).vitri + ":"; 
+                    labelNoiDungCauHoi.Text = "Question " + _entities.ds_goicauhoikhoidong.Find(_cauhoiid).vitri + ":"; 
                     lblcauhoi.Text = _entities.ds_goicauhoikhoidong.Find(_cauhoiid).noidungcauhoi;
                     lblDapan.Text = _entities.ds_goicauhoikhoidong.Find(_cauhoiid).dapan;
 
