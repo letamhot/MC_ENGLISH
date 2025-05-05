@@ -110,7 +110,7 @@
             // 
             // lblcauhoi
             // 
-            this.lblcauhoi.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcauhoi.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblcauhoi.Location = new System.Drawing.Point(16, 77);
             this.lblcauhoi.Name = "lblcauhoi";
             this.lblcauhoi.Size = new System.Drawing.Size(665, 304);

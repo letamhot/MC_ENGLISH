@@ -107,7 +107,7 @@ namespace MC_Project
             if (_goicauhoiid == 0)
             {
                 invisibleGui();
-                lblthele.Text = "Please invite candidates " + teamplaying.tennguoichoi.ToUpper() + " choose a question package!";                //lblthele.Text = "Thể lệ phần thi:";
+                lblthele.Text = "Please invite candidates " + teamplaying.tennguoichoi.ToUpper() + " chooses a question package!";                //lblthele.Text = "Thể lệ phần thi:";
 
             }
             else
@@ -131,7 +131,7 @@ namespace MC_Project
 
                     if (teamplaying != null)
                     {
-                        lblthele.Text = "Candidate " + teamplaying.tennguoichoi.ToString().ToUpper() + " choose question package number " + _goicauhoiid + "\n"; 
+                        lblthele.Text = "Candidate " + teamplaying.tennguoichoi.ToString().ToUpper() + " chooses question package number " + _goicauhoiid + "\n"; 
                         lblDA.Visible = false;
                         lblcauhoi.Visible = false;
                         labelNoiDungCauHoi.Visible = false;

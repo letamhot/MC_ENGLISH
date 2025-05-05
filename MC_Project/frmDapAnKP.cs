@@ -175,7 +175,7 @@ namespace MC_Project
         {
             pbDA.Visible = onoff;
             lblDA.Visible = onoff;
-            panel5.Visible = onoff;
+            //panel5.Visible = onoff;
         }
 
         private void pbClose_Click(object sender, EventArgs e)

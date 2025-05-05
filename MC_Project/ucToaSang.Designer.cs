@@ -53,9 +53,9 @@
             // 
             this.pbGoi4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbGoi4.BackgroundImage")));
             this.pbGoi4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbGoi4.Location = new System.Drawing.Point(840, 154);
+            this.pbGoi4.Location = new System.Drawing.Point(823, 135);
             this.pbGoi4.Name = "pbGoi4";
-            this.pbGoi4.Size = new System.Drawing.Size(120, 120);
+            this.pbGoi4.Size = new System.Drawing.Size(103, 101);
             this.pbGoi4.TabIndex = 26;
             this.pbGoi4.TabStop = false;
             // 
@@ -63,9 +63,9 @@
             // 
             this.pbGoi2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbGoi2.BackgroundImage")));
             this.pbGoi2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbGoi2.Location = new System.Drawing.Point(840, 28);
+            this.pbGoi2.Location = new System.Drawing.Point(823, 28);
             this.pbGoi2.Name = "pbGoi2";
-            this.pbGoi2.Size = new System.Drawing.Size(120, 120);
+            this.pbGoi2.Size = new System.Drawing.Size(103, 101);
             this.pbGoi2.TabIndex = 27;
             this.pbGoi2.TabStop = false;
             // 
@@ -73,9 +73,9 @@
             // 
             this.pbGoi5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbGoi5.BackgroundImage")));
             this.pbGoi5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbGoi5.Location = new System.Drawing.Point(777, 279);
+            this.pbGoi5.Location = new System.Drawing.Point(773, 242);
             this.pbGoi5.Name = "pbGoi5";
-            this.pbGoi5.Size = new System.Drawing.Size(120, 120);
+            this.pbGoi5.Size = new System.Drawing.Size(103, 101);
             this.pbGoi5.TabIndex = 28;
             this.pbGoi5.TabStop = false;
             // 
@@ -83,9 +83,9 @@
             // 
             this.pbGoi3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbGoi3.BackgroundImage")));
             this.pbGoi3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbGoi3.Location = new System.Drawing.Point(714, 154);
+            this.pbGoi3.Location = new System.Drawing.Point(714, 135);
             this.pbGoi3.Name = "pbGoi3";
-            this.pbGoi3.Size = new System.Drawing.Size(120, 120);
+            this.pbGoi3.Size = new System.Drawing.Size(103, 101);
             this.pbGoi3.TabIndex = 29;
             this.pbGoi3.TabStop = false;
             // 
@@ -95,13 +95,13 @@
             this.pbGoi1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbGoi1.Location = new System.Drawing.Point(714, 28);
             this.pbGoi1.Name = "pbGoi1";
-            this.pbGoi1.Size = new System.Drawing.Size(120, 120);
+            this.pbGoi1.Size = new System.Drawing.Size(103, 101);
             this.pbGoi1.TabIndex = 30;
             this.pbGoi1.TabStop = false;
             // 
             // lblNoiDungCauHoiVD
             // 
-            this.lblNoiDungCauHoiVD.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNoiDungCauHoiVD.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNoiDungCauHoiVD.Location = new System.Drawing.Point(32, 41);
             this.lblNoiDungCauHoiVD.Name = "lblNoiDungCauHoiVD";
             this.lblNoiDungCauHoiVD.Size = new System.Drawing.Size(640, 354);
@@ -131,9 +131,9 @@
             // lblDA
             // 
             this.lblDA.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDA.Location = new System.Drawing.Point(142, 411);
+            this.lblDA.Location = new System.Drawing.Point(151, 412);
             this.lblDA.Name = "lblDA";
-            this.lblDA.Size = new System.Drawing.Size(861, 88);
+            this.lblDA.Size = new System.Drawing.Size(809, 88);
             this.lblDA.TabIndex = 38;
             // 
             // lblThele

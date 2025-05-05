@@ -38,7 +38,7 @@
             // 
             this.labelDapAn.AutoSize = true;
             this.labelDapAn.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDapAn.Location = new System.Drawing.Point(14, 367);
+            this.labelDapAn.Location = new System.Drawing.Point(7, 367);
             this.labelDapAn.Name = "labelDapAn";
             this.labelDapAn.Size = new System.Drawing.Size(95, 31);
             this.labelDapAn.TabIndex = 1;
@@ -50,7 +50,7 @@
             this.lblThele.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblThele.Location = new System.Drawing.Point(14, 0);
             this.lblThele.Name = "lblThele";
-            this.lblThele.Size = new System.Drawing.Size(200, 31);
+            this.lblThele.Size = new System.Drawing.Size(221, 32);
             this.lblThele.TabIndex = 73;
             this.lblThele.Text = "Thể lệ phần thi:";
             // 
@@ -67,7 +67,7 @@
             // 
             this.flowPanelSentences.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.flowPanelSentences.Location = new System.Drawing.Point(19, 33);
-            this.flowPanelSentences.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowPanelSentences.Margin = new System.Windows.Forms.Padding(2);
             this.flowPanelSentences.Name = "flowPanelSentences";
             this.flowPanelSentences.Size = new System.Drawing.Size(947, 332);
             this.flowPanelSentences.TabIndex = 74;

@@ -9,6 +9,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AxWMPLib;
 using MC_Project.Model;
 
 namespace MC_Project
@@ -19,6 +20,7 @@ namespace MC_Project
         private int _doiid = 0;
         private int _cauchude = 0, _cauhoiphuid = 0;
         private bool _isStart;
+        private bool _isReadyOrOther;
         private bool _tt;
         /*private int _cuocthiid = 0;
         private int thoiGianTraLoi = 0;*/
@@ -30,7 +32,7 @@ namespace MC_Project
             InitializeComponent();
         }
 
-        public ucKhamPhaCS(Socket sock, int doiid,int cauchudeid, int cauhoiid, bool trangthai, bool start)
+        public ucKhamPhaCS(Socket sock, int doiid,int cauchudeid, int cauhoiid, bool trangthai, bool start, bool isReadyOrOther = false)
         {
             InitializeComponent();
             _socket = sock;
@@ -38,6 +40,7 @@ namespace MC_Project
             _isStart = start;
             _tt = trangthai;
             _cauchude = cauchudeid;
+            _isReadyOrOther = isReadyOrOther;
 
             _cauhoiphuid = cauhoiid;
             loadUC();
@@ -52,8 +55,6 @@ namespace MC_Project
             else
             {
                 visibleGui();
-            
-
                 ds_goicaudiscovery goi2 = null;
                 ds_doi thisinh = null;
 
@@ -75,22 +76,12 @@ namespace MC_Project
 
                         if (thisinh != null)
                         {
-                            lblNoiDungCauHoiChinh.Text = "INVITE CANDIDATES" + thisinh.tennguoichoi.ToString().ToUpper() + " PRESENT TOPIC: \n'" + cauHoiChinhCP.chude.ToString() + "'";
-
-                            lblNoiDungCauHoiChinh.Visible = true;
+                            lblNoiDungCauHoiChinh.Text = "TOPIC: " +cauHoiChinhCP.chude;
                         }
                     }
                 }
-                // Thiết lập font chữ
-                lblNoiDungCauHoiChinh.Font = new Font("Open Sans", 18, FontStyle.Bold);
 
-                // Thiết lập màu chữ
-                lblNoiDungCauHoiChinh.ForeColor = Color.FromArgb(0, 120, 215); // Xanh dương tươi
-
-                // Thiết lập màu nền (ví dụ: màu vàng nhạt)
-                lblNoiDungCauHoiChinh.BackColor = Color.FromArgb(255, 255, 204); // Vàng nhạt
-                lblNoiDungCauHoiChinh.BorderStyle = BorderStyle.FixedSingle;
-
+                // Kiểm tra trạng thái _tt
                 if (_tt)
                 {
                     onoffCauhoi(true);
@@ -100,31 +91,86 @@ namespace MC_Project
                         lsCauHoiPhuCP = _entities.ds_goicaudiscovery.Where(x => x.cauhoichaid == cauHoiChinhCP.cauhoiid).ToList();
                         ds_goicaudiscovery cauHoiPhu = lsCauHoiPhuCP.FirstOrDefault(x => x.cauhoiid == _cauhoiphuid);
                         LoadAnhPhuDaLat(_cauchude, thisinh.doiid);
-
-
                     }
-
                 }
                 else
                 {
                     onoffCauhoi(false);
                     pBCauHoiChinhCP.Visible = true;
 
-                    if (_isStart)
-                    {
-                        pBCauHoiChinhCP.Image = Image.FromFile(currentPath + "\\Resources\\pic\\" + cauHoiChinhCP.noidungthisinh);
-                        pBCauHoiChinhCP.BackgroundImageLayout = ImageLayout.Stretch;
-                        pBCauHoiChinhCP.SizeMode = PictureBoxSizeMode.StretchImage;
+                    string fileName = cauHoiChinhCP.noidungchude;
+                    string imagePath = Path.Combine(currentPath, "Resources", "pic", fileName);
+                    string videoPath = Path.Combine(currentPath, "Resources", "Video", fileName);
+                    string extension = Path.GetExtension(fileName).ToLower();
 
+                    // Kiểm tra giá trị của isReadyOrOther
+                    if (_isReadyOrOther)
+                    {
+                        // isReadyOrOther = true: Kiểm tra video và phát video nếu có
+                        if (extension == ".mp4" || extension == ".avi" || extension == ".mov" || extension == ".wmv" || extension == ".mkv")
+                        {
+                            if (File.Exists(videoPath))
+                            {
+                                axWindowsMediaPlayer1.URL = videoPath;
+                                axWindowsMediaPlayer1.Visible = true;
+                                axWindowsMediaPlayer1.Ctlcontrols.play();
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Không tìm thấy file video: " + videoPath);
+                            }
+                        }
+                        else
+                        {
+                            // Không phải video, hiển thị hình ảnh
+                            if (File.Exists(imagePath))
+                            {
+                                pBCauHoiChinhCP.BackgroundImage = Image.FromFile(imagePath);
+                                pBCauHoiChinhCP.BackgroundImageLayout = ImageLayout.Stretch;
+                                pBCauHoiChinhCP.Visible = true;
+                                axWindowsMediaPlayer1.Visible = false;
+                                axWindowsMediaPlayer1.Ctlcontrols.stop();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Không tìm thấy file ảnh: " + imagePath);
+                            }
+                        }
                     }
                     else
                     {
-                        pBCauHoiChinhCP.Image = Image.FromFile(currentPath + "\\Resources\\pic\\" + cauHoiChinhCP.noidungchude);
-                        pBCauHoiChinhCP.BackgroundImageLayout = ImageLayout.Stretch;
-                        pBCauHoiChinhCP.SizeMode = PictureBoxSizeMode.StretchImage;
-
+                        // isReadyOrOther = false: Kiểm tra video và hiển thị video nếu có, không phát
+                        if (extension == ".mp4" || extension == ".avi" || extension == ".mov" || extension == ".wmv" || extension == ".mkv")
+                        {
+                            if (File.Exists(videoPath))
+                            {
+                                axWindowsMediaPlayer1.URL = videoPath;
+                                axWindowsMediaPlayer1.Visible = true;
+                                axWindowsMediaPlayer1.Ctlcontrols.stop();  // Không phát video khi isReadyOrOther = false
+                            }
+                            else
+                            {
+                                MessageBox.Show("Không tìm thấy file video: " + videoPath);
+                            }
+                        }
+                        else
+                        {
+                            // Không phải video, hiển thị hình ảnh
+                            if (File.Exists(imagePath))
+                            {
+                                pBCauHoiChinhCP.BackgroundImage = Image.FromFile(imagePath);
+                                pBCauHoiChinhCP.BackgroundImageLayout = ImageLayout.Stretch;
+                                pBCauHoiChinhCP.Visible = true;
+                                axWindowsMediaPlayer1.Visible = false;
+                                axWindowsMediaPlayer1.Ctlcontrols.stop();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Không tìm thấy file ảnh: " + imagePath);
+                            }
+                        }
                     }
-
                 }
             }
         }

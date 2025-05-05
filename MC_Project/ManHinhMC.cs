@@ -349,6 +349,7 @@ namespace MC_Project
                             lblThoiGian.Location = new Point(87, 278);
                             pnlDiemSo.Location = new Point(29, 474);
                             onOffInfo(true);
+                            
                             ds_goicaudiscovery cauHoiChinhCP = _entities.ds_goicaudiscovery.Find(int.Parse(spl[3]));
                             if (spl[5] == "ready")
                             {
@@ -358,7 +359,7 @@ namespace MC_Project
                                 this.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group6\\tc_mc_cp.png");
                                 this.BackgroundImageLayout = ImageLayout.Stretch;
                                 pnlNoiDung.Controls.Clear();
-                                pnlNoiDung.Controls.Add(new ucKhamPhaCS(sock, id, int.Parse(spl[3]), int.Parse(spl[4]), false, false));
+                                pnlNoiDung.Controls.Add(new ucKhamPhaCS(sock, id, int.Parse(spl[3]), int.Parse(spl[4]), false, false, false));  // Hình ảnh
                             }
                             if (spl[5] == "start")
                             {
@@ -367,13 +368,13 @@ namespace MC_Project
                                 if (!string.IsNullOrWhiteSpace(khamPha.noidungthisinh))
                                 {
                                     pnlNoiDung.Controls.Clear();
-                                    pnlNoiDung.Controls.Add(new ucKhamPhaCS(sock, id, int.Parse(spl[3]), int.Parse(spl[4]), false, true));
+                                    pnlNoiDung.Controls.Add(new ucKhamPhaCS(sock, id, int.Parse(spl[3]), int.Parse(spl[4]), true, true, true)); // Thêm tham số true để phát video
                                     timeMC.Enabled = true;
                                 }
                                 else
                                 {
                                     pnlNoiDung.Controls.Clear();
-                                    pnlNoiDung.Controls.Add(new ucKhamPhaCS(sock, id, int.Parse(spl[3]), int.Parse(spl[4]), false, false));
+                                    pnlNoiDung.Controls.Add(new ucKhamPhaCS(sock, id, int.Parse(spl[3]), int.Parse(spl[4]), false, false, true));
                                     timeMC.Enabled = true;
                                 }
 
@@ -385,13 +386,13 @@ namespace MC_Project
                                 if (!string.IsNullOrWhiteSpace(khamPha.noidungthisinh))
                                 {
                                     pnlNoiDung.Controls.Clear();
-                                    pnlNoiDung.Controls.Add(new ucKhamPhaCS(sock, id, int.Parse(spl[3]), int.Parse(spl[4]), false, true));
+                                    pnlNoiDung.Controls.Add(new ucKhamPhaCS(sock, id, int.Parse(spl[3]), int.Parse(spl[4]), false, true, false)); // Dừng video
                                     timeMC.Enabled = false;
                                 }
                                 else
                                 {
                                     pnlNoiDung.Controls.Clear();
-                                    pnlNoiDung.Controls.Add(new ucKhamPhaCS(sock, id, int.Parse(spl[3]), int.Parse(spl[4]), false, false));
+                                    pnlNoiDung.Controls.Add(new ucKhamPhaCS(sock, id, int.Parse(spl[3]), int.Parse(spl[4]), false, false, false)); // Hình ảnh
                                     timeMC.Enabled = false;
                                 }
 
@@ -402,18 +403,18 @@ namespace MC_Project
                                 this.BackgroundImageLayout = ImageLayout.Stretch;
                                 timeMC.Enabled = false;
                                 pnlNoiDung.Controls.Clear();
-                                pnlNoiDung.Controls.Add(new ucKhamPhaCS(sock, id, int.Parse(spl[3]), int.Parse(spl[4]), false, true));
+                                pnlNoiDung.Controls.Add(new ucKhamPhaCS(sock, id, int.Parse(spl[3]), int.Parse(spl[4]), false, true, false));
                             }
                             if (spl[5] == "hienthimanh")
                             {
                                 pnlNoiDung.Controls.Clear();
-                                pnlNoiDung.Controls.Add(new ucKhamPhaCS(sock, id, int.Parse(spl[3]), int.Parse(spl[4]), true, false));
+                                pnlNoiDung.Controls.Add(new ucKhamPhaCS(sock, id, int.Parse(spl[3]), int.Parse(spl[4]), true, false, false));
                                 //tmClient.Enabled = true;
                             }
                             if (spl[5] == "load6nut")
                             {
                                 pnlNoiDung.Controls.Clear();
-                                pnlNoiDung.Controls.Add(new ucKhamPhaCS(sock, id, int.Parse(spl[3]), int.Parse(spl[4]), true, false));
+                                pnlNoiDung.Controls.Add(new ucKhamPhaCS(sock, id, int.Parse(spl[3]), int.Parse(spl[4]), true, false, false));
                                 //tmClient.Enabled = true;
                             }
                             if (spl[5] == "capnhatTongDiem")
@@ -423,14 +424,14 @@ namespace MC_Project
                                 if (!string.IsNullOrWhiteSpace(khamPha.noidungthisinh))
                                 {
                                     pnlNoiDung.Controls.Clear();
-                                    pnlNoiDung.Controls.Add(new ucKhamPhaCS(sock, id, int.Parse(spl[3]), int.Parse(spl[4]), false, true));
+                                    pnlNoiDung.Controls.Add(new ucKhamPhaCS(sock, id, int.Parse(spl[3]), int.Parse(spl[4]), false, true, false));
                                     pnlDiemSo.Visible = true;
                                     layCuocThiHienTai();
                                 }
                                 else
                                 {
                                     pnlNoiDung.Controls.Clear();
-                                    pnlNoiDung.Controls.Add(new ucKhamPhaCS(sock, id, int.Parse(spl[3]), int.Parse(spl[4]), false, false));
+                                    pnlNoiDung.Controls.Add(new ucKhamPhaCS(sock, id, int.Parse(spl[3]), int.Parse(spl[4]), false, false, false));
                                     pnlDiemSo.Visible = true;
                                     layCuocThiHienTai();
                                 }
@@ -768,6 +769,7 @@ namespace MC_Project
                         }
                         else if (spl[5] == "capNhatDiemManHinhTS")
                         {
+                            da = false;
                             layCuocThiHienTai();
                             pnlNoiDung.Controls.Clear();
                             pnlNoiDung.Controls.Add(new ucToaSang(sock, int.Parse(spl[0]), int.Parse(spl[4]), tt, x2, da, false, false));

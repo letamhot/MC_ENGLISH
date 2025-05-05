@@ -55,19 +55,20 @@
             // 
             this.pbDA.BackColor = System.Drawing.Color.Transparent;
             this.pbDA.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbDA.BackgroundImage")));
+            this.pbDA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbDA.Controls.Add(this.lblDapAn);
-            this.pbDA.Location = new System.Drawing.Point(150, 500);
+            this.pbDA.Location = new System.Drawing.Point(101, 573);
             this.pbDA.Name = "pbDA";
-            this.pbDA.Size = new System.Drawing.Size(1122, 208);
+            this.pbDA.Size = new System.Drawing.Size(1201, 137);
             this.pbDA.TabIndex = 96;
             // 
             // lblDapAn
             // 
             this.lblDapAn.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDapAn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblDapAn.Location = new System.Drawing.Point(252, 40);
+            this.lblDapAn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblDapAn.Location = new System.Drawing.Point(487, 4);
             this.lblDapAn.Name = "lblDapAn";
-            this.lblDapAn.Size = new System.Drawing.Size(723, 129);
+            this.lblDapAn.Size = new System.Drawing.Size(680, 129);
             this.lblDapAn.TabIndex = 0;
             this.lblDapAn.Text = "label3";
             this.lblDapAn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -75,12 +76,12 @@
             // lblCauHoi
             // 
             this.lblCauHoi.BackColor = System.Drawing.Color.Transparent;
-            this.lblCauHoi.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblCauHoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCauHoi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblCauHoi.Location = new System.Drawing.Point(288, 245);
+            this.lblCauHoi.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCauHoi.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblCauHoi.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblCauHoi.Location = new System.Drawing.Point(154, 245);
             this.lblCauHoi.Name = "lblCauHoi";
-            this.lblCauHoi.Size = new System.Drawing.Size(837, 252);
+            this.lblCauHoi.Size = new System.Drawing.Size(1136, 314);
             this.lblCauHoi.TabIndex = 95;
             this.lblCauHoi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -88,10 +89,10 @@
             // 
             this.labelCauHoi.BackColor = System.Drawing.Color.Transparent;
             this.labelCauHoi.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCauHoi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelCauHoi.Location = new System.Drawing.Point(288, 200);
+            this.labelCauHoi.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelCauHoi.Location = new System.Drawing.Point(154, 200);
             this.labelCauHoi.Name = "labelCauHoi";
-            this.labelCauHoi.Size = new System.Drawing.Size(831, 42);
+            this.labelCauHoi.Size = new System.Drawing.Size(965, 42);
             this.labelCauHoi.TabIndex = 94;
             this.labelCauHoi.Text = "Câu hỏi";
             this.labelCauHoi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -107,6 +108,7 @@
             this.Controls.Add(this.lblCauHoi);
             this.Controls.Add(this.labelCauHoi);
             this.Controls.Add(pbClose);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmKhanGia";

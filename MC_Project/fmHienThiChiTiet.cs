@@ -39,10 +39,10 @@ namespace MC_Project
             ds_cauhoithuthach ds = _entities.ds_cauhoithuthach.FirstOrDefault(x => x.cauhoiid == cauhoiid && x.cuocthiid == cuocthiId);
             if (ds != null)
             {
-                labelDapAnCT.Text = "HIỂN THỊ ĐÁP ÁN CHI TIẾT CÂU "+ ds.vitri;
-                labelDapAnCT.ForeColor = Color.Red;
-                lblDapAnCT.ForeColor = Color.OrangeRed;
-                lblDapAnCT.Font = new Font("Arial", ds.dapanABC.Length > 50 ? 20 : ds.dapanABC.Length < 10 ? 26 : 24);
+                //labelDapAnCT.Text = "HIỂN THỊ ĐÁP ÁN CHI TIẾT CÂU "+ ds.vitri;
+                //labelDapAnCT.ForeColor = Color.Black;
+                lblDapAnCT.ForeColor = Color.Black;
+                lblDapAnCT.Font = new Font("Arial", ds.dapantext.Length > 50 ? 26 : ds.dapantext.Length < 10 ? 30 : 28, FontStyle.Bold);
                 lblDapAnCT.Text =  ds.dapantext;
             }
         }

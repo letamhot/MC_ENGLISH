@@ -38,6 +38,7 @@
             this.lblNoiDungCauHoiChinh = new System.Windows.Forms.Label();
             this.pBCauHoiChinhCP = new System.Windows.Forms.PictureBox();
             this.pbCauhoiphu = new System.Windows.Forms.PictureBox();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.pbCau4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCau3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCau6)).BeginInit();
@@ -46,6 +47,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbCau1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBCauHoiChinhCP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCauhoiphu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // pbCau4
@@ -53,7 +55,7 @@
             this.pbCau4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pbCau4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbCau4.BackgroundImage")));
             this.pbCau4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbCau4.Location = new System.Drawing.Point(205, 339);
+            this.pbCau4.Location = new System.Drawing.Point(205, 332);
             this.pbCau4.Name = "pbCau4";
             this.pbCau4.Size = new System.Drawing.Size(195, 150);
             this.pbCau4.TabIndex = 30;
@@ -64,7 +66,7 @@
             this.pbCau3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pbCau3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbCau3.BackgroundImage")));
             this.pbCau3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbCau3.Location = new System.Drawing.Point(602, 190);
+            this.pbCau3.Location = new System.Drawing.Point(602, 183);
             this.pbCau3.Name = "pbCau3";
             this.pbCau3.Size = new System.Drawing.Size(203, 150);
             this.pbCau3.TabIndex = 32;
@@ -75,7 +77,7 @@
             this.pbCau6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pbCau6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbCau6.BackgroundImage")));
             this.pbCau6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbCau6.Location = new System.Drawing.Point(602, 339);
+            this.pbCau6.Location = new System.Drawing.Point(602, 332);
             this.pbCau6.Name = "pbCau6";
             this.pbCau6.Size = new System.Drawing.Size(203, 150);
             this.pbCau6.TabIndex = 33;
@@ -87,7 +89,7 @@
             this.pbCau2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pbCau2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbCau2.BackgroundImage")));
             this.pbCau2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbCau2.Location = new System.Drawing.Point(399, 191);
+            this.pbCau2.Location = new System.Drawing.Point(399, 184);
             this.pbCau2.Name = "pbCau2";
             this.pbCau2.Size = new System.Drawing.Size(202, 150);
             this.pbCau2.TabIndex = 34;
@@ -98,7 +100,7 @@
             this.pbCau5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pbCau5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbCau5.BackgroundImage")));
             this.pbCau5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbCau5.Location = new System.Drawing.Point(399, 339);
+            this.pbCau5.Location = new System.Drawing.Point(399, 332);
             this.pbCau5.Name = "pbCau5";
             this.pbCau5.Size = new System.Drawing.Size(202, 150);
             this.pbCau5.TabIndex = 35;
@@ -110,7 +112,7 @@
             this.pbCau1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pbCau1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbCau1.BackgroundImage")));
             this.pbCau1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbCau1.Location = new System.Drawing.Point(205, 190);
+            this.pbCau1.Location = new System.Drawing.Point(205, 183);
             this.pbCau1.Name = "pbCau1";
             this.pbCau1.Size = new System.Drawing.Size(195, 150);
             this.pbCau1.TabIndex = 36;
@@ -121,7 +123,7 @@
             this.lblNoiDungCauHoiChinh.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNoiDungCauHoiChinh.Location = new System.Drawing.Point(27, 15);
             this.lblNoiDungCauHoiChinh.Name = "lblNoiDungCauHoiChinh";
-            this.lblNoiDungCauHoiChinh.Size = new System.Drawing.Size(935, 172);
+            this.lblNoiDungCauHoiChinh.Size = new System.Drawing.Size(935, 148);
             this.lblNoiDungCauHoiChinh.TabIndex = 28;
             this.lblNoiDungCauHoiChinh.Text = "Câu hỏi mảnh ghép: ";
             this.lblNoiDungCauHoiChinh.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -129,7 +131,7 @@
             // pBCauHoiChinhCP
             // 
             this.pBCauHoiChinhCP.InitialImage = null;
-            this.pBCauHoiChinhCP.Location = new System.Drawing.Point(205, 190);
+            this.pBCauHoiChinhCP.Location = new System.Drawing.Point(205, 183);
             this.pBCauHoiChinhCP.Name = "pBCauHoiChinhCP";
             this.pBCauHoiChinhCP.Size = new System.Drawing.Size(600, 300);
             this.pBCauHoiChinhCP.TabIndex = 26;
@@ -137,17 +139,28 @@
             // 
             // pbCauhoiphu
             // 
-            this.pbCauhoiphu.Location = new System.Drawing.Point(205, 191);
+            this.pbCauhoiphu.Location = new System.Drawing.Point(205, 184);
             this.pbCauhoiphu.Name = "pbCauhoiphu";
             this.pbCauhoiphu.Size = new System.Drawing.Size(600, 300);
             this.pbCauhoiphu.TabIndex = 76;
             this.pbCauhoiphu.TabStop = false;
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(205, 173);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(600, 309);
+            this.axWindowsMediaPlayer1.TabIndex = 77;
+            this.axWindowsMediaPlayer1.Visible = false;
             // 
             // ucKhamPhaCS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.pbCauhoiphu);
             this.Controls.Add(this.pbCau4);
             this.Controls.Add(this.pbCau3);
@@ -167,6 +180,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbCau1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBCauHoiChinhCP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCauhoiphu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -181,5 +195,6 @@
         private System.Windows.Forms.Label lblNoiDungCauHoiChinh;
         private System.Windows.Forms.PictureBox pBCauHoiChinhCP;
         private System.Windows.Forms.PictureBox pbCauhoiphu;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }
