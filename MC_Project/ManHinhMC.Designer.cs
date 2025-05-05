@@ -64,9 +64,9 @@
             // pnlNoiDung
             // 
             this.pnlNoiDung.BackColor = System.Drawing.Color.Transparent;
-            this.pnlNoiDung.Location = new System.Drawing.Point(357, 238);
+            this.pnlNoiDung.Location = new System.Drawing.Point(357, 185);
             this.pnlNoiDung.Name = "pnlNoiDung";
-            this.pnlNoiDung.Size = new System.Drawing.Size(987, 499);
+            this.pnlNoiDung.Size = new System.Drawing.Size(987, 552);
             this.pnlNoiDung.TabIndex = 2;
             // 
             // lblThoiGian
