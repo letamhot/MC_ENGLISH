@@ -107,7 +107,7 @@ namespace MC_Project
             if (_goicauhoiid == 0)
             {
                 invisibleGui();
-                lblthele.Text = "Question package!";                
+                lblthele.Text = "Question packages!";                
             }
             else
             {

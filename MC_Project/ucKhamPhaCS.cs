@@ -111,6 +111,7 @@ namespace MC_Project
                         {
                             if (File.Exists(videoPath))
                             {
+                                axWindowsMediaPlayer1.uiMode = "none";
                                 axWindowsMediaPlayer1.URL = videoPath;
                                 axWindowsMediaPlayer1.Visible = true;
                                 axWindowsMediaPlayer1.Ctlcontrols.play();
@@ -145,6 +146,7 @@ namespace MC_Project
                         {
                             if (File.Exists(videoPath))
                             {
+                                axWindowsMediaPlayer1.uiMode = "none";
                                 axWindowsMediaPlayer1.URL = videoPath;
                                 axWindowsMediaPlayer1.Visible = true;
                                 axWindowsMediaPlayer1.Ctlcontrols.stop();  // Không phát video khi isReadyOrOther = false

@@ -9,6 +9,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AxWMPLib;
 using MC_Project.Model;
 
 namespace MC_Project
@@ -148,6 +149,7 @@ namespace MC_Project
                                     }
                                     else
                                     {
+                                        axWinCauHoiHinhAnh.uiMode = "none";
                                         axWinCauHoiHinhAnh.Visible = true;
                                         axWinCauHoiHinhAnh.URL = currentPath + "\\Resources\\Video\\" + vd.urlhinhanh;
                                         axWinCauHoiHinhAnh.Ctlcontrols.play();
@@ -215,6 +217,8 @@ namespace MC_Project
 
                                     if (_isVideoStart)
                                     {
+                                        axWinCauHoiHinhAnh.uiMode = "none";
+
                                         axWinCauHoiHinhAnh.Visible = true;
                                         axWinCauHoiHinhAnh.URL = currentPath + "\\Resources\\Video\\" + vd.urlhinhanh;
                                         axWinCauHoiHinhAnh.Ctlcontrols.play();
@@ -240,6 +244,8 @@ namespace MC_Project
                                     }
                                     else
                                     {
+                                        axWinCauHoiHinhAnh.uiMode = "none";
+
                                         axWinCauHoiHinhAnh.Visible = false;
                                         axWinCauHoiHinhAnh.URL = currentPath + "\\Resources\\Video\\" + vd.urlhinhanh;
                                         axWinCauHoiHinhAnh.Ctlcontrols.stop();
