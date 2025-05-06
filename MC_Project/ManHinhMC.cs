@@ -256,10 +256,10 @@ namespace MC_Project
                             }
                             if (spl[4] == "start")
                             {
+                                timeMC.Enabled = true;
                                 pnlNoiDung.Controls.Clear();
                                 pnlNoiDung.Controls.Add(new ucThuThach(sock, id, int.Parse(spl[3]), true, int.Parse(spl[5])));
-                                Thread.Sleep(1000);
-                                timeMC.Enabled = true;
+                                //Thread.Sleep(1000);
                             }
                             if (spl[4] == "stop")
                             {
