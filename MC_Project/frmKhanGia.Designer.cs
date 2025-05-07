@@ -83,7 +83,6 @@
             this.lblCauHoi.Name = "lblCauHoi";
             this.lblCauHoi.Size = new System.Drawing.Size(1136, 314);
             this.lblCauHoi.TabIndex = 95;
-            this.lblCauHoi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelCauHoi
             // 

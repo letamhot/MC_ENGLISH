@@ -218,7 +218,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ManHinhMC";
             this.Text = "ManHinhMC";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ManHinhMC_FormClosing);
             this.Load += new System.EventHandler(this.ManHinhMC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMini)).EndInit();

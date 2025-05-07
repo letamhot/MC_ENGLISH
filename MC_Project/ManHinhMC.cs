@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MC_Project;
 using System.Configuration;
+using System.Security.Cryptography;
 
 delegate void AddMessage(string sNewMessage);
 namespace MC_Project
@@ -905,12 +906,6 @@ namespace MC_Project
                 MessageBox.Show(this, ex.Message, "Send lenh dieu khien loi!");
             }
 
-        }
-
-        private void ManHinhMC_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            SendEvent(id.ToString() + ",cli,connected,off");
-            Application.Exit();
         }
 
         private void pbClose_Click(object sender, EventArgs e)
