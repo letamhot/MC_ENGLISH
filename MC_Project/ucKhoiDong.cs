@@ -39,79 +39,23 @@ namespace MC_Project
             //loadUC();
         }
 
-        private void loadUC()
-        {
-            
-        }
-
-        /* private void loadDanhSachCauHoi()
-         {
-             List<ds_goicauhoikhoidong> ds_Goicauhoikhoidongs = _entities.ds_goicauhoikhoidong.Where(x => x.goicauhoiid.Equals(_goicauhoiid)).ToList();
-             if (ds_Goicauhoikhoidongs != null && ds_Goicauhoikhoidongs.Count > 0)
-             {
-                 int stt = 0;
-                 for (int i = 0; i < ds_Goicauhoikhoidongs.Count; i++)
-                 {
-                     stt++;
-                     ds_goicauhoikhoidong item = ds_Goicauhoikhoidongs[i];
-                     string[] row = { stt.ToString(), item.noidungcauhoi, item.dapan };
-                     ListViewItem lvi = new ListViewItem(row);
-                     lvCauHoiKhoiDong.Items.Add(lvi);
-                 }
-             }
-             disableButton();
-         }*/
-
-        private void disableButton(int[] _ttgoi)
-        {
-            if (_ttgoi[0] == 1)
-            {
-                pbGoi1.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\1-in.png");
-                pbGoi1.BackgroundImageLayout = ImageLayout.Stretch;
-
-            }
-            if (_ttgoi[1] == 1)
-            {
-                pbGoi2.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\2-in.png");
-                pbGoi2.BackgroundImageLayout = ImageLayout.Stretch;
-
-            }
-            if (_ttgoi[2] == 1)
-            {
-                pbGoi3.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\3-in.png");
-                pbGoi3.BackgroundImageLayout = ImageLayout.Stretch;
-
-            }
-            if (_ttgoi[3] == 1)
-            {
-                pbGoi4.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\4-in.png");
-                pbGoi4.BackgroundImageLayout = ImageLayout.Stretch;
-
-            }
-            if (_ttgoi[4] == 1)
-            {
-                pbGoi5.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\5-in.png");
-                pbGoi5.BackgroundImageLayout = ImageLayout.Stretch;
-
-            }
-            if (_ttgoi[5] == 1)
-            {
-                pbGoi6.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\6-in.png");
-                pbGoi6.BackgroundImageLayout = ImageLayout.Stretch;
-
-            }
-        }
+ 
         private void ucKhoiDong_Load(object sender, EventArgs e)
         {
             ds_doi teamplaying = _entities.ds_doi.Find(_doiid);
             if (_goicauhoiid == 0)
             {
                 invisibleGui();
-                lblthele.Text = "Question packages!";                
+                lblthele.Text = "Question packages!";
+                // Reset all packages to available state when starting new selection
+                ResetAllPackageStates();
             }
             else
             {
-                
+
+                // Update all package states first
+                UpdateAllPackageStates(_ttgoi);
+
                 if (_cauhoiid > 0)
                 {
                     visibleGui();
@@ -158,49 +102,77 @@ namespace MC_Project
 
                     }
                 }
-                disableButton(_ttgoi);
-                selectedButton(_ttgoi);
 
 
             }
         }
-        private void selectedButton(int[] _ttgoi)
+       
+        private HashSet<int> dsCauHoiDaHienThi = new HashSet<int>();
+        private void ResetAllPackageStates()
         {
-            if (_ttgoi[0] == 2)
+            // Reset all packages to available state (0)
+            for (int i = 0; i < 6; i++)
             {
-                pbGoi1.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\1-dis.png");
-                this.BackgroundImageLayout = ImageLayout.Stretch;
-
+                SetPackageImage(i + 1, "ac");
             }
-            if (_ttgoi[1] == 2)
-            {
-                pbGoi2.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\2-dis.png");
-                this.BackgroundImageLayout = ImageLayout.Stretch;
+            dsCauHoiDaHienThi.Clear();
 
+        }
+
+        private void UpdateAllPackageStates(int[] states)
+        {
+            for (int i = 0; i < states.Length; i++)
+            {
+                int packageNumber = i + 1;
+                switch (states[i])
+                {
+                    case 0: // Available
+                        SetPackageImage(packageNumber, "ac"); // Available (normal)
+                        break;
+                    case 1: // Selected/In-progress
+                        SetPackageImage(packageNumber, "in"); // Highlighted/selected
+                        break;
+                    case 2: // Completed
+                        SetPackageImage(packageNumber, "dis"); // Disabled/grayed out
+                        break;
+                }
             }
-            if (_ttgoi[2] == 2)
-            {
-                pbGoi3.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\3-dis.png");
-                this.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+        private void SetPackageImage(int packageNumber, string state)
+        {
+            string imagePath = $"{currentPath}\\Resources\\group4\\";
 
+            switch (state)
+            {
+                case "ac": // Available
+                    imagePath += $"{packageNumber}-ac.png";
+                    break;
+                case "in": // Disabled
+                    imagePath += $"{packageNumber}-in.png";
+                    break;
+                case "dis": // Selected
+                    imagePath += $"{packageNumber}-dis.png"; // Or use a different selected image if available
+                    break;
             }
-            if (_ttgoi[3] == 2)
-            {
-                pbGoi4.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\4-dis.png");
-                this.BackgroundImageLayout = ImageLayout.Stretch;
 
+            var pictureBox = GetPictureBoxByPackageNumber(packageNumber);
+            if (pictureBox != null && File.Exists(imagePath))
+            {
+                pictureBox.BackgroundImage = Image.FromFile(imagePath);
+                pictureBox.BackgroundImageLayout = ImageLayout.Stretch;
             }
-            if (_ttgoi[4] == 2)
+        }
+        private PictureBox GetPictureBoxByPackageNumber(int packageNumber)
+        {
+            switch (packageNumber)
             {
-                pbGoi5.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\5-dis.png");
-                this.BackgroundImageLayout = ImageLayout.Stretch;
-
-            }
-            if (_ttgoi[5] == 2)
-            {
-                pbGoi6.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\6-dis.png");
-                this.BackgroundImageLayout = ImageLayout.Stretch;
-
+                case 1: return pbGoi1;
+                case 2: return pbGoi2;
+                case 3: return pbGoi3;
+                case 4: return pbGoi4;
+                case 5: return pbGoi5;
+                case 6: return pbGoi6;
+                default: return null;
             }
         }
 

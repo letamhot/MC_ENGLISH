@@ -688,7 +688,7 @@ namespace MC_Project
                         }
                         else if (spl[5] == "stop")
                         {
-                            ttGoiKD[int.Parse(spl[4]) - 1] = 1;
+                            ttGoiKD[int.Parse(spl[4]) - 1] = 2;
 
                             timeMC.Enabled = false;
                             layCuocThiHienTai();
