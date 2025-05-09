@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -56,80 +57,102 @@ namespace MC_Project
         private void displayUCKhamPha(int cauhoiid)
         {
             ds_cauhoithuthach khamPha = _entities.ds_cauhoithuthach.Find(cauhoiid);
-            if (khamPha != null)
+            if (khamPha == null) return;
+            _entities.Entry(khamPha).Reload(); // ⚠️ Nạp lại từ DB
+
+            //Hiển thị loại câu hỏi theo vị trí
+            if (khamPha.vitri == 1 || khamPha.vitri == 2)
             {
-                if (khamPha.vitri == 1 || khamPha.vitri == 2)
-                {
-                    lblThele.Text = "Question " + khamPha.vitri + ": Rearrange the following words or phrases to make a complete sentence";
-
-                }
-                else if (khamPha.vitri == 3 || khamPha.vitri == 4)
-                {
-                    lblThele.Text = "Question " + khamPha.vitri + ": Rearrange the following sentences to make a meaningful conversation";
-
-                }
-                else
-                {
-                    lblThele.Text = "Question " + khamPha.vitri + ": Rearrange the following sentences to make a meaningful paragraph";
-
-                }
-                //lblThele.Text = "Question number " + khamPha.vitri + ":";
-                lblDapAn.Text = khamPha.dapantext + "\n" + khamPha.dapanABC;
-                //lblNoiDungCauHoiKP.Text = khamPha.noidung;
-                // Xóa các Button cũ
-                flowPanelSentences.Controls.Clear();
-
-                // Đặt FlowLayoutPanel hiển thị theo cột dọc
-                flowPanelSentences.FlowDirection = FlowDirection.TopDown;
-                flowPanelSentences.WrapContents = false;
-                flowPanelSentences.AutoScroll = true; // Bật scroll khi cần thiết
-
-                // Tách nội dung thành các câu
-                string[] sentences = khamPha.noidung.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
-                string[] answerLabels = { "A", "B", "C", "D", "E" };
-
-                // Sử dụng TextRenderer để đo kích thước text chính xác hơn
-                TextFormatFlags flags = TextFormatFlags.WordBreak | TextFormatFlags.TextBoxControl | TextFormatFlags.Left;
-
-                // Font sử dụng cho Button
-                Font btnFont = new Font("Arial", 10, FontStyle.Bold);
-
-                // Chiều rộng của Button (trừ đi padding và border)
-                int buttonWidth = flowPanelSentences.ClientSize.Width - SystemInformation.VerticalScrollBarWidth - 10;
-
-                foreach (int i in Enumerable.Range(0, sentences.Length))
-                {
-                    string buttonText = answerLabels[i] + ". " + sentences[i].Trim();
-
-                    Button btn = new Button
-                    {
-                        Text = buttonText,
-                        Font = btnFont,
-                        TextAlign = ContentAlignment.MiddleLeft,
-                        Padding = new Padding(10),
-                        BackColor = _isStart ? Color.LightBlue : Color.LightGray,
-                        ForeColor = Color.Black,
-                        FlatStyle = FlatStyle.Flat,
-                        Width = buttonWidth,
-                        Enabled = false
-                    };
-
-                    btn.FlatAppearance.BorderColor = Color.DarkBlue;
-                    btn.FlatAppearance.BorderSize = 1;
-
-                    // Tính toán chiều cao cần thiết
-                    Size proposedSize = new Size(buttonWidth - btn.Padding.Horizontal, int.MaxValue);
-                    Size textSize = TextRenderer.MeasureText(btn.Text, btn.Font, proposedSize, flags);
-
-                    // Chiều cao tối thiểu là 50, hoặc cao hơn nếu text nhiều dòng
-                    btn.Height = Math.Max(60, textSize.Height + btn.Padding.Vertical + 10);
-
-                    flowPanelSentences.Controls.Add(btn);
-                }
+                lblThele.Text = "Question " + khamPha.vitri + ": Rearrange the following words or phrases to make a complete sentence";
 
             }
+            else if (khamPha.vitri == 3 || khamPha.vitri == 4)
+            {
+                lblThele.Text = "Question " + khamPha.vitri + ": Rearrange the following sentences to make a meaningful conversation";
+
+            }
+            else
+            {
+                lblThele.Text = "Question " + khamPha.vitri + ": Rearrange the following sentences to make a meaningful paragraph";
+
+            }
+            lblDapAn.Text = khamPha.dapanABC;
+            // Tối ưu hiển thị, tránh nháy bằng cách bật DoubleBuffered
+            EnableDoubleBuffering(flowPanelSentences);
+
+            flowPanelSentences.SuspendLayout();
+            flowPanelSentences.Controls.Clear();
+
+            flowPanelSentences.FlowDirection = FlowDirection.TopDown;
+            flowPanelSentences.WrapContents = false;
+            flowPanelSentences.AutoScroll = true;
+            flowPanelSentences.Padding = new Padding(10);
+
+            string[] sentences = khamPha.noidung.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] answerLabels = { "A", "B", "C", "D", "E" };
+
+            Color primaryColor = Color.FromArgb(52, 152, 219);
+            Color hoverColor = Color.FromArgb(41, 128, 185);
+            Font btnFont = new Font("Arial", 12, FontStyle.Bold);
+            Color textColor = Color.White;
+            int buttonWidth = flowPanelSentences.ClientSize.Width - SystemInformation.VerticalScrollBarWidth - 10;
+
+            for (int i = 0; i < sentences.Length && i < answerLabels.Length; i++)
+            {
+                string text = answerLabels[i] + ". " + sentences[i].Trim();
+
+                Button btn = new Button
+                {
+                    Text = text,
+                    Font = btnFont,
+                    ForeColor = textColor,
+                    BackColor = primaryColor,
+                    FlatStyle = FlatStyle.Flat,
+                    Width = buttonWidth,
+                    Height = 60, // Base height
+                    Margin = new Padding(0, 0, 0, 10),
+                    TextAlign = ContentAlignment.MiddleLeft,
+                    Padding = new Padding(15, 10, 10, 10),
+                    Cursor = Cursors.Hand,
+                    UseVisualStyleBackColor = false,
+                    AutoSize = false, // QUAN TRỌNG: Không dùng AutoSize để tự điều chỉnh chiều ngang
+                };
+
+                // Tính toán chiều cao theo nội dung (nếu có dòng dài)
+                Size textSize = TextRenderer.MeasureText(btn.Text, btn.Font, new Size(buttonWidth - btn.Padding.Horizontal, int.MaxValue), TextFormatFlags.WordBreak);
+                btn.Height = Math.Max(60, textSize.Height + btn.Padding.Vertical + 10);
+
+                // Tối ưu FlatAppearance
+                btn.FlatAppearance.BorderSize = 0;
+                btn.FlatAppearance.MouseOverBackColor = hoverColor;
+                btn.FlatAppearance.MouseDownBackColor = Color.FromArgb(32, 102, 155);
+
+                // Bo góc
+                btn.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn.Width, btn.Height, 15, 15));
+
+                // Hover effect
+                btn.MouseEnter += (s, e) => btn.BackColor = hoverColor;
+                btn.MouseLeave += (s, e) => btn.BackColor = primaryColor;
+
+                flowPanelSentences.Controls.Add(btn);
+            }
+
+            flowPanelSentences.ResumeLayout();
+
+        
+        }
+        private void EnableDoubleBuffering(Control control)
+        {
+            typeof(Control).InvokeMember("DoubleBuffered",
+                System.Reflection.BindingFlags.SetProperty |
+                System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.NonPublic,
+                null, control, new object[] { true });
         }
 
+        // Hàm tạo region bo góc (thêm vào class)
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
         private void VisibleGui()
         {
             lblThele.Visible = true;

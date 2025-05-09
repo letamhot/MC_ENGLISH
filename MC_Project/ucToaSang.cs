@@ -60,6 +60,8 @@ namespace MC_Project
                 if (_cauhoiid > 0)
                 {
                     ds_goicauhoishining vd = _entities.ds_goicauhoishining.Find(_cauhoiid);
+                    _entities.Entry(vd).Reload(); // ⚠️ Nạp lại từ DB
+
                     // First update all question states based on database
                     UpdateAllQuestionStates();
 
@@ -316,7 +318,7 @@ namespace MC_Project
                         SetQuestionImage((int)question.vitri, _x2 ? "star" : "in");
                         break;
                     case 2: // Already answered
-                        SetQuestionImage((int)question.vitri, "dis");
+                        SetQuestionImage((int)question.vitri, _x2 ? "star" : "dis");
                         break;
                 }
             }
@@ -391,7 +393,7 @@ namespace MC_Project
 
             foreach (var cauHoi in dsCauDaChon)
             {
-                SetQuestionImage((int)cauHoi.vitri, "dis");
+                SetQuestionImage((int)cauHoi.vitri, _x2 ? "star" : "dis");
             }
         }
         public void VisibleGui()

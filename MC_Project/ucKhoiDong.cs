@@ -66,37 +66,37 @@ namespace MC_Project
         {
             if (_ttgoi[0] == 1)
             {
-                pbGoi1.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\kd1_in.png");
+                pbGoi1.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\1-in.png");
                 pbGoi1.BackgroundImageLayout = ImageLayout.Stretch;
 
             }
             if (_ttgoi[1] == 1)
             {
-                pbGoi2.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\kd2_in.png");
+                pbGoi2.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\2-in.png");
                 pbGoi2.BackgroundImageLayout = ImageLayout.Stretch;
 
             }
             if (_ttgoi[2] == 1)
             {
-                pbGoi3.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\kd3_in.png");
+                pbGoi3.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\3-in.png");
                 pbGoi3.BackgroundImageLayout = ImageLayout.Stretch;
 
             }
             if (_ttgoi[3] == 1)
             {
-                pbGoi4.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\kd4_in.png");
+                pbGoi4.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\4-in.png");
                 pbGoi4.BackgroundImageLayout = ImageLayout.Stretch;
 
             }
             if (_ttgoi[4] == 1)
             {
-                pbGoi5.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\kd5_in.png");
+                pbGoi5.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\5-in.png");
                 pbGoi5.BackgroundImageLayout = ImageLayout.Stretch;
 
             }
             if (_ttgoi[5] == 1)
             {
-                pbGoi6.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\kd6_in.png");
+                pbGoi6.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\6-in.png");
                 pbGoi6.BackgroundImageLayout = ImageLayout.Stretch;
 
             }
@@ -119,9 +119,12 @@ namespace MC_Project
                     {
                         lblthele.Text = "Candidate " + teamplaying.tennguoichoi.ToUpper() + " is doing the section";
                     }
-                    labelNoiDungCauHoi.Text = "Question " + _entities.ds_goicauhoikhoidong.Find(_cauhoiid).vitri + ":"; 
-                    lblcauhoi.Text = _entities.ds_goicauhoikhoidong.Find(_cauhoiid).noidungcauhoi;
-                    lblDapan.Text = _entities.ds_goicauhoikhoidong.Find(_cauhoiid).dapan;
+                    ds_goicauhoikhoidong cauhoi = _entities.ds_goicauhoikhoidong.Find(_cauhoiid);
+
+                    _entities.Entry(cauhoi).Reload(); // ⚠️ Nạp lại từ DB
+                    labelNoiDungCauHoi.Text = "Question " + cauhoi.vitri + ":"; 
+                    lblcauhoi.Text = cauhoi.noidungcauhoi;
+                    lblDapan.Text = cauhoi.dapan;
 
                 }
                 else
@@ -165,37 +168,37 @@ namespace MC_Project
         {
             if (_ttgoi[0] == 2)
             {
-                pbGoi1.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\Group_221.png");
+                pbGoi1.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\1-dis.png");
                 this.BackgroundImageLayout = ImageLayout.Stretch;
 
             }
             if (_ttgoi[1] == 2)
             {
-                pbGoi2.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\Group_222.png");
+                pbGoi2.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\2-dis.png");
                 this.BackgroundImageLayout = ImageLayout.Stretch;
 
             }
             if (_ttgoi[2] == 2)
             {
-                pbGoi3.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\Group_223.png");
+                pbGoi3.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\3-dis.png");
                 this.BackgroundImageLayout = ImageLayout.Stretch;
 
             }
             if (_ttgoi[3] == 2)
             {
-                pbGoi4.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\Group_224.png");
+                pbGoi4.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\4-dis.png");
                 this.BackgroundImageLayout = ImageLayout.Stretch;
 
             }
             if (_ttgoi[4] == 2)
             {
-                pbGoi5.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\Group_225.png");
+                pbGoi5.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\5-dis.png");
                 this.BackgroundImageLayout = ImageLayout.Stretch;
 
             }
             if (_ttgoi[5] == 2)
             {
-                pbGoi6.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\Group_226.png");
+                pbGoi6.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group4\\6-dis.png");
                 this.BackgroundImageLayout = ImageLayout.Stretch;
 
             }

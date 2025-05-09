@@ -37,10 +37,10 @@
             // labelDapAn
             // 
             this.labelDapAn.AutoSize = true;
-            this.labelDapAn.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDapAn.Location = new System.Drawing.Point(7, 418);
+            this.labelDapAn.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDapAn.Location = new System.Drawing.Point(3, 478);
             this.labelDapAn.Name = "labelDapAn";
-            this.labelDapAn.Size = new System.Drawing.Size(95, 31);
+            this.labelDapAn.Size = new System.Drawing.Size(116, 32);
             this.labelDapAn.TabIndex = 1;
             this.labelDapAn.Text = "Đáp án:";
             // 
@@ -49,26 +49,26 @@
             this.lblThele.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblThele.Location = new System.Drawing.Point(14, 0);
             this.lblThele.Name = "lblThele";
-            this.lblThele.Size = new System.Drawing.Size(952, 71);
+            this.lblThele.Size = new System.Drawing.Size(952, 63);
             this.lblThele.TabIndex = 73;
             this.lblThele.Text = "Thể lệ phần thi:";
             // 
             // lblDapAn
             // 
-            this.lblDapAn.Font = new System.Drawing.Font("Arial Narrow", 12.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDapAn.Location = new System.Drawing.Point(102, 419);
+            this.lblDapAn.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDapAn.Location = new System.Drawing.Point(111, 478);
             this.lblDapAn.Name = "lblDapAn";
-            this.lblDapAn.Size = new System.Drawing.Size(864, 133);
+            this.lblDapAn.Size = new System.Drawing.Size(864, 74);
             this.lblDapAn.TabIndex = 1;
             this.lblDapAn.Text = "Đáp án:";
             // 
             // flowPanelSentences
             // 
             this.flowPanelSentences.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.flowPanelSentences.Location = new System.Drawing.Point(19, 73);
+            this.flowPanelSentences.Location = new System.Drawing.Point(19, 65);
             this.flowPanelSentences.Margin = new System.Windows.Forms.Padding(2);
             this.flowPanelSentences.Name = "flowPanelSentences";
-            this.flowPanelSentences.Size = new System.Drawing.Size(947, 328);
+            this.flowPanelSentences.Size = new System.Drawing.Size(947, 411);
             this.flowPanelSentences.TabIndex = 74;
             // 
             // ucThuThach

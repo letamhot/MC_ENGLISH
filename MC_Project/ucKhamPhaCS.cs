@@ -119,6 +119,8 @@ namespace MC_Project
                             }
                             else
                             {
+                                axWindowsMediaPlayer1.Visible = false;
+                                axWindowsMediaPlayer1.Ctlcontrols.stop();
                                 MessageBox.Show("Không tìm thấy file video: " + videoPath);
                             }
                         }
@@ -153,6 +155,8 @@ namespace MC_Project
                             }
                             else
                             {
+                                axWindowsMediaPlayer1.Visible = false;
+                                axWindowsMediaPlayer1.Ctlcontrols.stop();
                                 MessageBox.Show("Không tìm thấy file video: " + videoPath);
                             }
                         }
@@ -184,6 +188,8 @@ namespace MC_Project
 
             foreach (var cauHoiPhu in dsAnhDaLat)
             {
+                _entities.Entry(cauHoiPhu).Reload(); // ⚠️ Nạp lại từ DB
+
                 string imagePath = Path.Combine(currentPath, "Resources", "pic", cauHoiPhu.noidungchude);
                 if (!File.Exists(imagePath)) continue;
 
