@@ -42,7 +42,7 @@ namespace MC_Project
                 //labelDapAnCT.Text = "HIỂN THỊ ĐÁP ÁN CHI TIẾT CÂU "+ ds.vitri;
                 //labelDapAnCT.ForeColor = Color.Black;
                 lblDapAnCT.ForeColor = Color.Black;
-                lblDapAnCT.Font = new Font("Arial", ds.dapantext.Length > 50 ? 26 : ds.dapantext.Length < 10 ? 30 : 28, FontStyle.Bold);
+                lblDapAnCT.Font = new Font("Arial", ds.dapantext.Length > 600 ? 22 : ds.dapantext.Length < 100 ? 28 : 26, FontStyle.Bold);
                 lblDapAnCT.Text =  ds.dapantext;
             }
         }
