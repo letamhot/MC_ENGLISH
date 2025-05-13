@@ -62,14 +62,14 @@ namespace MC_Project
                     ds_goicauhoishining vd = _entities.ds_goicauhoishining.Find(_cauhoiid);
                     _entities.Entry(vd).Reload(); // ⚠️ Nạp lại từ DB
 
-                    // First update all question states based on database
-                    UpdateAllQuestionStates();
+
 
                     // Then display the current question
                     disPlayVeDich(_cauhoiid, (int)vd.vitri, _x2);
                     loadNutDangChon(_cauhoiid, _x2);
                     loadNutDaChon(_cauhoiid);
-
+                    // First update all question states based on database
+                    UpdateAllQuestionStates(_cauhoiid);
                     lblThele.Text = "Question " + vd.vitri + ": (" + vd.sodiem + " points)";
 
                     if ((bool)!vd.isvideo)
@@ -302,13 +302,15 @@ namespace MC_Project
             dsCauHoiDaHienThi.Clear();
         }
 
-        private void UpdateAllQuestionStates()
+        private void UpdateAllQuestionStates(int cauhoiid)
         {
             // Get all questions from database
-            var allQuestions = _entities.ds_goicauhoishining.ToList();
+            var allQuestions = _entities.ds_goicauhoishining.Where(x => x.cauhoiid == cauhoiid).ToList();
 
             foreach (var question in allQuestions)
             {
+                _entities.Entry(question).Reload(); // Nạp lại từng dòng mới nhất từ DB
+
                 switch (question.trangThai)
                 {
                     case 0: // Not selected
