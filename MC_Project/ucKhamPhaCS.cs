@@ -98,7 +98,7 @@ namespace MC_Project
                     onoffCauhoi(false);
                     pBCauHoiChinhCP.Visible = true;
 
-                    string fileName = cauHoiChinhCP.noidungchude;
+                    string fileName = _isStart ? cauHoiChinhCP.noidungthisinh : cauHoiChinhCP.noidungchude;
                     string imagePath = Path.Combine(currentPath, "Resources", "pic", fileName);
                     string videoPath = Path.Combine(currentPath, "Resources", "Video", fileName);
                     string extension = Path.GetExtension(fileName).ToLower();
