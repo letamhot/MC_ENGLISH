@@ -69,7 +69,7 @@ namespace MC_Project
                     loadNutDangChon(_cauhoiid, _x2);
                     loadNutDaChon(_cauhoiid);
                     // First update all question states based on database
-                    UpdateAllQuestionStates(_cauhoiid);
+                    UpdateAllQuestionStates();
                     lblThele.Text = "Question " + vd.vitri + ": (" + vd.sodiem + " points)";
 
                     if ((bool)!vd.isvideo)
@@ -302,10 +302,10 @@ namespace MC_Project
             dsCauHoiDaHienThi.Clear();
         }
 
-        private void UpdateAllQuestionStates(int cauhoiid)
+        private void UpdateAllQuestionStates()
         {
             // Get all questions from database
-            var allQuestions = _entities.ds_goicauhoishining.Where(x => x.cauhoiid == cauhoiid).ToList();
+            var allQuestions = _entities.ds_goicauhoishining.ToList();
 
             foreach (var question in allQuestions)
             {
@@ -320,7 +320,7 @@ namespace MC_Project
                         SetQuestionImage((int)question.vitri, _x2 ? "star" : "in");
                         break;
                     case 2: // Already answered
-                        SetQuestionImage((int)question.vitri, _x2 ? "star" : "dis");
+                        SetQuestionImage((int)question.vitri, "dis");
                         break;
                 }
             }
