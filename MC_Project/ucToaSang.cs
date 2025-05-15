@@ -67,9 +67,9 @@ namespace MC_Project
                     // Then display the current question
                     disPlayVeDich(_cauhoiid, (int)vd.vitri, _x2);
                     loadNutDangChon(_cauhoiid, _x2);
-                    loadNutDaChon(_cauhoiid);
+                    loadNutDaChon(_cauhoiid, _x2);
                     // First update all question states based on database
-                    UpdateAllQuestionStates();
+                    UpdateAllQuestionStates(_cauhoiid);
                     lblThele.Text = "Question " + vd.vitri + ": (" + vd.sodiem + " points)";
 
                     if ((bool)!vd.isvideo)
@@ -302,26 +302,23 @@ namespace MC_Project
             dsCauHoiDaHienThi.Clear();
         }
 
-        private void UpdateAllQuestionStates()
+        private void UpdateAllQuestionStates(int currentCauHoiId)
         {
-            // Get all questions from database
-            var allQuestions = _entities.ds_goicauhoishining.ToList();
+            List<ds_goicauhoishining> allQuestions = _entities.ds_goicauhoishining.ToList();
 
             foreach (var question in allQuestions)
             {
-                _entities.Entry(question).Reload(); // Nạp lại từng dòng mới nhất từ DB
+                _entities.Entry(question).Reload(); // Load mới từ DB
+
+                // Nếu đây là câu hỏi hiện tại đang được chọn -> bỏ qua vì loadUC sẽ xử lý riêng
+                if (question.cauhoiid == currentCauHoiId)
+                    continue;
 
                 switch (question.trangThai)
                 {
-                    case 0: // Not selected
-                        SetQuestionImage((int)question.vitri, "ac");
-                        break;
-                    case 1: // Currently selected
-                        SetQuestionImage((int)question.vitri, _x2 ? "star" : "in");
-                        break;
-                    case 2: // Already answered
-                        SetQuestionImage((int)question.vitri, "dis");
-                        break;
+                    case 0: SetQuestionImage((int)question.vitri, "ac"); break;
+                    case 1: SetQuestionImage((int)question.vitri, "in"); break;
+                    case 2: SetQuestionImage((int)question.vitri, "dis"); break;
                 }
             }
         }
@@ -387,7 +384,7 @@ namespace MC_Project
             }
         }
 
-        private void loadNutDaChon(int cauhoiid)
+        private void loadNutDaChon(int cauhoiid, bool x2)
         {
             var dsCauDaChon = _entities.ds_goicauhoishining
                 .Where(x => x.cauhoiid == cauhoiid && x.trangThai == 2)
@@ -395,7 +392,9 @@ namespace MC_Project
 
             foreach (var cauHoi in dsCauDaChon)
             {
-                SetQuestionImage((int)cauHoi.vitri, _x2 ? "star" : "dis");
+                _entities.Entry(cauHoi).Reload(); // Nạp lại từng dòng mới nhất từ DB
+
+                SetQuestionImage((int)cauHoi.vitri, x2 ? "star" : "dis");
             }
         }
         public void VisibleGui()
