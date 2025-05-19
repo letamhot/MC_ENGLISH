@@ -132,7 +132,7 @@
             // lblDapan
             // 
             this.lblDapan.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDapan.Location = new System.Drawing.Point(117, 395);
+            this.lblDapan.Location = new System.Drawing.Point(124, 395);
             this.lblDapan.Name = "lblDapan";
             this.lblDapan.Size = new System.Drawing.Size(548, 104);
             this.lblDapan.TabIndex = 6;
