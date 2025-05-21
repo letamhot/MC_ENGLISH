@@ -114,9 +114,9 @@
             this.labelDA.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDA.Location = new System.Drawing.Point(32, 412);
             this.labelDA.Name = "labelDA";
-            this.labelDA.Size = new System.Drawing.Size(124, 32);
+            this.labelDA.Size = new System.Drawing.Size(122, 32);
             this.labelDA.TabIndex = 31;
-            this.labelDA.Text = "Đáp án :";
+            this.labelDA.Text = "Answer:";
             // 
             // axWinCauHoiHinhAnh
             // 

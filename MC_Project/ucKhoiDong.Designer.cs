@@ -125,9 +125,9 @@
             this.lblDA.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDA.Location = new System.Drawing.Point(15, 391);
             this.lblDA.Name = "lblDA";
-            this.lblDA.Size = new System.Drawing.Size(116, 32);
+            this.lblDA.Size = new System.Drawing.Size(122, 32);
             this.lblDA.TabIndex = 5;
-            this.lblDA.Text = "Đáp án:";
+            this.lblDA.Text = "Answer:";
             // 
             // lblDapan
             // 

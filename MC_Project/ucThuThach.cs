@@ -72,9 +72,14 @@ namespace MC_Project
                 lblThele.Text = "Question " + khamPha.vitri + ": Rearrange the following utterances to make a meaningful conversation.";
 
             }
-            else
+            else if (khamPha.vitri == 5)
             {
                 lblThele.Text = "Question " + khamPha.vitri + ": Rearrange the following sentences to make a meaningful paragraph.";
+
+            }
+            else
+            {
+                lblThele.Text = "Question " + khamPha.vitri + ":";
 
             }
             lblDapAn.Text = khamPha.dapanABC;
