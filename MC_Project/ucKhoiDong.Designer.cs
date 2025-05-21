@@ -111,6 +111,7 @@
             // lblcauhoi
             // 
             this.lblcauhoi.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcauhoi.ForeColor = System.Drawing.Color.MidnightBlue;
             this.lblcauhoi.Location = new System.Drawing.Point(16, 77);
             this.lblcauhoi.Name = "lblcauhoi";
             this.lblcauhoi.Size = new System.Drawing.Size(665, 304);
@@ -141,6 +142,7 @@
             // 
             this.labelNoiDungCauHoi.AutoSize = true;
             this.labelNoiDungCauHoi.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoiDungCauHoi.ForeColor = System.Drawing.Color.MidnightBlue;
             this.labelNoiDungCauHoi.Location = new System.Drawing.Point(15, 44);
             this.labelNoiDungCauHoi.Name = "labelNoiDungCauHoi";
             this.labelNoiDungCauHoi.Size = new System.Drawing.Size(218, 29);

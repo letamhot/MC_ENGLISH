@@ -129,7 +129,7 @@
             // 
             this.lblTS4.BackColor = System.Drawing.Color.Transparent;
             this.lblTS4.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTS4.ForeColor = System.Drawing.Color.Red;
+            this.lblTS4.ForeColor = System.Drawing.Color.Gold;
             this.lblTS4.Location = new System.Drawing.Point(1050, 172);
             this.lblTS4.Name = "lblTS4";
             this.lblTS4.Size = new System.Drawing.Size(189, 78);
@@ -140,7 +140,7 @@
             // 
             this.lblTS3.BackColor = System.Drawing.Color.Transparent;
             this.lblTS3.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTS3.ForeColor = System.Drawing.Color.Red;
+            this.lblTS3.ForeColor = System.Drawing.Color.Gold;
             this.lblTS3.Location = new System.Drawing.Point(822, 172);
             this.lblTS3.Name = "lblTS3";
             this.lblTS3.Size = new System.Drawing.Size(189, 78);
@@ -151,7 +151,7 @@
             // 
             this.lblTS2.BackColor = System.Drawing.Color.Transparent;
             this.lblTS2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTS2.ForeColor = System.Drawing.Color.Red;
+            this.lblTS2.ForeColor = System.Drawing.Color.Gold;
             this.lblTS2.Location = new System.Drawing.Point(592, 172);
             this.lblTS2.Name = "lblTS2";
             this.lblTS2.Size = new System.Drawing.Size(189, 78);
@@ -162,7 +162,7 @@
             // 
             this.lblTS1.BackColor = System.Drawing.Color.Transparent;
             this.lblTS1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTS1.ForeColor = System.Drawing.Color.Red;
+            this.lblTS1.ForeColor = System.Drawing.Color.Gold;
             this.lblTS1.Location = new System.Drawing.Point(366, 172);
             this.lblTS1.Name = "lblTS1";
             this.lblTS1.Size = new System.Drawing.Size(190, 78);
