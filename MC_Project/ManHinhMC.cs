@@ -309,7 +309,7 @@ namespace MC_Project
                     }
                     if (spl[2] == "playkhamphachiase")
                     {
-                        lblThoiGian.ForeColor = Color.Red;
+                        lblThoiGian.ForeColor = Color.White;
 
                         layCuocThiHienTai();
                         onoffKhanGia(true);
@@ -541,7 +541,14 @@ namespace MC_Project
                                 pnlNoiDung.Controls.Clear();
                                 pnlNoiDung.Controls.Add(new ucToaSang(sock, id, int.Parse(spl[4]), tt, false, false, false, false));
                             }
-
+                            if (spl[5] == "loadDanhSachCauHoi")
+                            {
+                                this.BackgroundImage = Image.FromFile(currentPath + "\\Resources\\group6\\tc_mc_vd.png");
+                                this.BackgroundImageLayout = ImageLayout.Stretch;
+                                timeMC.Enabled = false;
+                                pnlNoiDung.Controls.Clear();
+                                pnlNoiDung.Controls.Add(new ucToaSang(sock, id, int.Parse(spl[4]), tt, false, false, false, false, true));
+                            }
                             if (spl[5] == "ready")
                             {
 
@@ -588,6 +595,26 @@ namespace MC_Project
                                 }
 
                             }
+                            if (spl[5] == "start_x2")
+                            {
+                                timeMC.Enabled = true;
+                                tt = false;
+                                if (int.Parse(spl[4]) != 0)
+                                {
+                                    var cauhoiVD = _entities.ds_goicauhoishining.Find(int.Parse(spl[4]));
+
+                                    thoiGianConLai = 20;
+                                    lblThoiGian.Text = thoiGianConLai.ToString();
+                                    pnlNoiDung.Controls.Clear();
+                                    pnlNoiDung.Controls.Add(new ucToaSang(sock, id, int.Parse(spl[4]), tt, true, false, false, false));
+                                }
+                                else
+                                {
+                                    pnlNoiDung.Controls.Clear();
+                                    pnlNoiDung.Controls.Add(new ucToaSang(sock, id, int.Parse(spl[4]), tt, true, false, false, false));
+                                }
+                            }
+
                             if (spl[5] == "forceanswer")
                             {
                                 // Hiển thị đáp án khi thí sinh 1 trả lời đúng hoặc thí sinh 2 dành quyền
