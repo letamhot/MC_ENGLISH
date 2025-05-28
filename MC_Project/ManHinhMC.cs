@@ -699,9 +699,10 @@ namespace MC_Project
                         onoffKhanGia(true);
                         onOffInfo(true);
                         //lblCauHoiChinhMain.Visible = false;
-                        
+                        lblThoiGian.ForeColor = Color.White;
+
                         //lblThoiGiankg.Visible = false;
-                        
+
                         //lblThoiGian.Text = thoiGianConLai.ToString();
                         lblThoiGian.Location = new Point(87, 278);
                         pnlDiemSo.Location = new Point(29, 474);
@@ -772,6 +773,7 @@ namespace MC_Project
                         onOffInfo(true);
                         //lblCauHoiChinhMain.Visible = false;
                         thoiGianConLai = 20;
+                        lblThoiGian.ForeColor = Color.White;
 
                         //lblThoiGiankg.Visible = false;
                         bool x2 = false;
