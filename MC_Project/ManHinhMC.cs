@@ -178,7 +178,7 @@ namespace MC_Project
                         {
                             Application.OpenForms["frmTongDiem"].Close();
                         }
-
+                        CloseFormsByName("frmDapAnKP", "frmTongDiem", "frmKhanGia");
                         // Khởi tạo lại frmTongDiem sau khi đã đóng
                         frmTongDiem = new frmTongDiem();
                         onoffKhanGia(true);
@@ -209,6 +209,7 @@ namespace MC_Project
                         {
                             Application.OpenForms["frmTongDiem"].Close();
                         }
+                        CloseFormsByName("frmTongDiem", "frmKhanGia");
 
                         if (spl[3] == "0")
                         {
@@ -332,6 +333,8 @@ namespace MC_Project
                         {
                             Application.OpenForms["frmDapAnKP"].Close();
                         }
+                        CloseFormsByName("frmDapAnKP", "frmTongDiem", "frmKhanGia");
+
                         if (spl[3] == "0")
                         {
                             // Giả sử frmTongDiem là form con, kiểm tra và đóng form nếu đang mở
@@ -457,6 +460,7 @@ namespace MC_Project
                         {
                             Application.OpenForms["frmDapAnKP"].Close();
                         }
+
                         if (spl[5] == "0")
                         {
                             frmKhanGia frmKhanGia;
@@ -465,6 +469,8 @@ namespace MC_Project
                             //lblCauHoiChinhMain.Visible = false;
                             thoiGianConLai = 20;
                             lblThoiGian.Text = thoiGianConLai.ToString();
+                            CloseFormsByName("frmDapAnKP", "frmTongDiem", "frmKhanGia");
+
                             // Giả sử frmTongDiem là form con, kiểm tra và đóng form nếu đang mở
                             if (Application.OpenForms["frmTongDiem"] != null)
                             {
@@ -617,6 +623,9 @@ namespace MC_Project
 
                             if (spl[5] == "forceanswer")
                             {
+                                timeMC.Enabled = false;
+                                thoiGianConLai = 20;
+                                lblThoiGian.Text = thoiGianConLai.ToString();
                                 // Hiển thị đáp án khi thí sinh 1 trả lời đúng hoặc thí sinh 2 dành quyền
                                 layCuocThiHienTai();
                                 da = true;
@@ -781,6 +790,9 @@ namespace MC_Project
 
                         if (spl[5] == "showanswer")
                         {
+                            timeMC.Enabled = false;
+                            thoiGianConLai = 20;
+                            lblThoiGian.Text = thoiGianConLai.ToString();
                             // Hiển thị đáp án khi thí sinh 1 trả lời đúng hoặc thí sinh 2 dành quyền
                             layCuocThiHienTai();
                             da = true;
@@ -790,6 +802,9 @@ namespace MC_Project
                         }
                         else if (spl[5] == "noanswer")
                         {
+                            timeMC.Enabled = false;
+                            thoiGianConLai = 20;
+                            lblThoiGian.Text = thoiGianConLai.ToString();
                             // Không hiển thị đáp án khi thí sinh 1 trả lời sai
                             layCuocThiHienTai();
                             da = true;
@@ -825,6 +840,16 @@ namespace MC_Project
                     }
 
 
+                }
+            }
+        }
+        public void CloseFormsByName(params string[] formNames)
+        {
+            foreach (Form form in Application.OpenForms.Cast<Form>().ToList())
+            {
+                if (formNames.Contains(form.Name))
+                {
+                    form.Close();
                 }
             }
         }

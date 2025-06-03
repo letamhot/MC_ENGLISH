@@ -60,7 +60,8 @@ namespace MC_Project
                 if (_loadDS)
                 {
                     VisibleGui();
-                    UpdateAllQuestionStates(_cauhoiid);
+                    ds_goicauhoishining vd = _entities.ds_goicauhoishining.Find(_cauhoiid);
+                    _entities.Entry(vd).Reload(); // ⚠️ Nạp lại từ DB
 
                     lblThele.Text = "Field of knowledge of the next question\r\n";
                 }

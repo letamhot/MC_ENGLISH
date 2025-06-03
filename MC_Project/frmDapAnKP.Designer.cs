@@ -114,11 +114,12 @@
             this.pbClose.BackColor = System.Drawing.Color.Transparent;
             this.pbClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbClose.BackgroundImage")));
             this.pbClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbClose.Location = new System.Drawing.Point(1338, 30);
+            this.pbClose.Location = new System.Drawing.Point(1331, 12);
             this.pbClose.Name = "pbClose";
-            this.pbClose.Size = new System.Drawing.Size(33, 30);
+            this.pbClose.Size = new System.Drawing.Size(25, 23);
             this.pbClose.TabIndex = 108;
             this.pbClose.TabStop = false;
+            this.pbClose.Click += new System.EventHandler(this.pbClose_Click);
             // 
             // lblDiem4
             // 

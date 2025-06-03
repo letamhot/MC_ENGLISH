@@ -52,9 +52,9 @@
             // 
             this.pbGoi1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbGoi1.BackgroundImage")));
             this.pbGoi1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbGoi1.Location = new System.Drawing.Point(704, 48);
+            this.pbGoi1.Location = new System.Drawing.Point(724, 73);
             this.pbGoi1.Name = "pbGoi1";
-            this.pbGoi1.Size = new System.Drawing.Size(120, 120);
+            this.pbGoi1.Size = new System.Drawing.Size(100, 104);
             this.pbGoi1.TabIndex = 4;
             this.pbGoi1.TabStop = false;
             // 
@@ -62,9 +62,9 @@
             // 
             this.pbGoi2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbGoi2.BackgroundImage")));
             this.pbGoi2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbGoi2.Location = new System.Drawing.Point(830, 48);
+            this.pbGoi2.Location = new System.Drawing.Point(830, 73);
             this.pbGoi2.Name = "pbGoi2";
-            this.pbGoi2.Size = new System.Drawing.Size(120, 120);
+            this.pbGoi2.Size = new System.Drawing.Size(100, 104);
             this.pbGoi2.TabIndex = 4;
             this.pbGoi2.TabStop = false;
             // 
@@ -72,9 +72,9 @@
             // 
             this.pbGoi3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbGoi3.BackgroundImage")));
             this.pbGoi3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbGoi3.Location = new System.Drawing.Point(704, 174);
+            this.pbGoi3.Location = new System.Drawing.Point(724, 182);
             this.pbGoi3.Name = "pbGoi3";
-            this.pbGoi3.Size = new System.Drawing.Size(120, 120);
+            this.pbGoi3.Size = new System.Drawing.Size(100, 104);
             this.pbGoi3.TabIndex = 4;
             this.pbGoi3.TabStop = false;
             // 
@@ -82,9 +82,9 @@
             // 
             this.pbGoi4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbGoi4.BackgroundImage")));
             this.pbGoi4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbGoi4.Location = new System.Drawing.Point(830, 174);
+            this.pbGoi4.Location = new System.Drawing.Point(830, 182);
             this.pbGoi4.Name = "pbGoi4";
-            this.pbGoi4.Size = new System.Drawing.Size(120, 120);
+            this.pbGoi4.Size = new System.Drawing.Size(100, 104);
             this.pbGoi4.TabIndex = 4;
             this.pbGoi4.TabStop = false;
             // 
@@ -92,9 +92,9 @@
             // 
             this.pbGoi5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbGoi5.BackgroundImage")));
             this.pbGoi5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbGoi5.Location = new System.Drawing.Point(704, 300);
+            this.pbGoi5.Location = new System.Drawing.Point(724, 292);
             this.pbGoi5.Name = "pbGoi5";
-            this.pbGoi5.Size = new System.Drawing.Size(120, 120);
+            this.pbGoi5.Size = new System.Drawing.Size(100, 104);
             this.pbGoi5.TabIndex = 4;
             this.pbGoi5.TabStop = false;
             // 
@@ -102,9 +102,9 @@
             // 
             this.pbGoi6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbGoi6.BackgroundImage")));
             this.pbGoi6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbGoi6.Location = new System.Drawing.Point(830, 300);
+            this.pbGoi6.Location = new System.Drawing.Point(830, 292);
             this.pbGoi6.Name = "pbGoi6";
-            this.pbGoi6.Size = new System.Drawing.Size(120, 120);
+            this.pbGoi6.Size = new System.Drawing.Size(100, 104);
             this.pbGoi6.TabIndex = 4;
             this.pbGoi6.TabStop = false;
             // 
@@ -112,9 +112,9 @@
             // 
             this.lblcauhoi.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblcauhoi.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblcauhoi.Location = new System.Drawing.Point(16, 77);
+            this.lblcauhoi.Location = new System.Drawing.Point(16, 107);
             this.lblcauhoi.Name = "lblcauhoi";
-            this.lblcauhoi.Size = new System.Drawing.Size(665, 304);
+            this.lblcauhoi.Size = new System.Drawing.Size(665, 294);
             this.lblcauhoi.TabIndex = 3;
             this.lblcauhoi.Text = "label1";
             this.lblcauhoi.Visible = false;
@@ -124,7 +124,7 @@
             // 
             this.lblDA.AutoSize = true;
             this.lblDA.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDA.Location = new System.Drawing.Point(15, 391);
+            this.lblDA.Location = new System.Drawing.Point(15, 407);
             this.lblDA.Name = "lblDA";
             this.lblDA.Size = new System.Drawing.Size(122, 32);
             this.lblDA.TabIndex = 5;
@@ -133,9 +133,9 @@
             // lblDapan
             // 
             this.lblDapan.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDapan.Location = new System.Drawing.Point(124, 395);
+            this.lblDapan.Location = new System.Drawing.Point(143, 411);
             this.lblDapan.Name = "lblDapan";
-            this.lblDapan.Size = new System.Drawing.Size(548, 104);
+            this.lblDapan.Size = new System.Drawing.Size(681, 88);
             this.lblDapan.TabIndex = 6;
             // 
             // labelNoiDungCauHoi
@@ -143,7 +143,7 @@
             this.labelNoiDungCauHoi.AutoSize = true;
             this.labelNoiDungCauHoi.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNoiDungCauHoi.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.labelNoiDungCauHoi.Location = new System.Drawing.Point(15, 44);
+            this.labelNoiDungCauHoi.Location = new System.Drawing.Point(16, 69);
             this.labelNoiDungCauHoi.Name = "labelNoiDungCauHoi";
             this.labelNoiDungCauHoi.Size = new System.Drawing.Size(218, 29);
             this.labelNoiDungCauHoi.TabIndex = 22;
@@ -154,9 +154,9 @@
             this.lblthele.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblthele.Location = new System.Drawing.Point(5, 2);
             this.lblthele.Name = "lblthele";
-            this.lblthele.Size = new System.Drawing.Size(945, 39);
+            this.lblthele.Size = new System.Drawing.Size(982, 67);
             this.lblthele.TabIndex = 30;
-            this.lblthele.Text = "Thể lệ cuộc thi:";
+            this.lblthele.Text = "Candidate NGUYEN TRAN PHUONG ANH chooses question package number  1";
             this.lblthele.Visible = false;
             // 
             // ucKhoiDong
